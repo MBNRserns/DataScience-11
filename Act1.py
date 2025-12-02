@@ -79,12 +79,54 @@ occupation=set(data['occupation'])
 print(occupation)
 print()
 print()
-#data['occupation']=data['occupation'].map({' Exec-managerial':0, ' Machine-op-inspct':1, ' Protective-serv', ' ?', ' Armed-Forces', ' Other-service', ' Prof-specialty', ' Craft-repair', ' Tech-support', ' Transport-moving', ' Handlers-cleaners', ' Farming-fishing', ' Priv-house-serv', ' Sales', ' Adm-clerical'})
+data['occupation']=data['occupation'].map({' Exec-managerial':0, ' Machine-op-inspct':1, ' Protective-serv':2, ' ?':3, ' Armed-Forces':4, ' Other-service':5, ' Prof-specialty':6, ' Craft-repair':7, ' Tech-support':8, ' Transport-moving':9, ' Handlers-cleaners':10, ' Farming-fishing':11, ' Priv-house-serv':12, ' Sales':13, ' Adm-clerical':14})
 print(data.head())
 print()
 print("-------------------------------------------------")
 print()
 
 data.groupby('occupation').income.mean().plot(kind='bar')
+plt.show()
+
+#Marital Status
+marital_status=set(data['marital status'])
+print(marital_status)
+print()
+print()
+data['marital status']=data['marital status'].map({' Widowed':0, ' Never-married':1, ' Married-spouse-absent':2, ' Divorced':3, ' Married-AF-spouse':4, ' Separated':5, ' Married-civ-spouse':6})
+print(data.head())
+print()
+print("-------------------------------------------------")
+print()
+
+data.groupby('marital status').income.mean().plot(kind='bar')
+plt.show()
+
+#Education
+education=set(data['education'])
+print(education)
+print()
+print()
+data['education']=data['education'].map({' 11th':0, ' 12th':1, ' Preschool':2, ' 1st-4th':3, ' Some-college':4, ' 9th':5, ' Assoc-voc':6, ' Prof-school':7, ' Masters':8, ' Bachelors':9, ' 5th-6th':10, ' 7th-8th':11, ' HS-grad':12, ' Assoc-acdm':13, 'Doctorate':14, ' 10th':15})
+print(data.head())
+print()
+print("-------------------------------------------------")
+print()
+
+data.groupby('education').income.mean().plot(kind='bar')
+plt.show()
+
+#Workclass
+workclass=set(data['workclass'])
+print(workclass)
+print()
+print()
+data['workclass']=data['workclass'].map({' Local-gov':0, ' ?':1, ' Federal-gov':2, ' Self-emp-inc':3, ' Self-emp-not-inc':4, ' Private':5, ' Without-pay':6, ' Never-worked':7, ' State-gov':8})
+print(data.head())
+print()
+print("-------------------------------------------------")
+print()
+
+data.groupby('workclass').income.mean().plot(kind='bar')
 plt.show()
 
